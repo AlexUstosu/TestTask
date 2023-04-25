@@ -1,8 +1,10 @@
-﻿namespace WebApplication1.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace WebApplication1.Models
 {
     public class Client
     {
-        public int _id;
+        [Key]
+        public long ID { get; set; }
         public string? Name { get; set; }
         public string? Familia { get; set; }
         public DateOnly BDay { get; set; }
