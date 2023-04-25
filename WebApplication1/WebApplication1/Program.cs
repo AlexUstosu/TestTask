@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Clients.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ClientContext>(opt =>
