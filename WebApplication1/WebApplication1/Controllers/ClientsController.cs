@@ -11,7 +11,16 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class ClientsController : ControllerBase
     {
-        private readonly ClientContext _context;
+        //private readonly IConfiguration configuration;
+
+        //public ConfigurationController(IConfiguration configuration)
+        //{
+        //    this.configuration = configuration;
+
+        //}
+
+
+    private readonly ClientContext? _context;
 
         public ClientsController(ClientContext context)
         {
@@ -114,7 +123,7 @@ namespace WebApplication1.Controllers
         {
             return (_context.ClientsItem?.Any(e => e.ID == id)).GetValueOrDefault();
         }
-        private readonly ILogger<ClientsController> _logger;
+        private readonly ILogger<ClientsController>? _logger;
         public ClientsController(ILogger<ClientsController> logger) =>
         _logger = logger;
 
@@ -126,5 +135,7 @@ namespace WebApplication1.Controllers
                 await Task.Delay(1_000, stoppingToken);
             }
         }
+
+        
     }
 }
